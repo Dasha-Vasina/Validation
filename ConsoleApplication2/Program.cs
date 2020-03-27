@@ -6,34 +6,89 @@ namespace ConsoleApplication2
 {
     internal class Program
     {
+        public IValidator Validator { get; }
+
+        public Program(IValidator validator)
+        {
+            Validator = validator;
+        }
+
         public static void Main(string[] args)
         {
-            var validator = new XsdValidator();
+            Console.Write("Путь до файла валидации (XSD, DTD): ");
 
-            var xsdPath = @"C:\Users\Pavel\Downloads\ТЗ\shipbuilding_rental4.xsd";
+            var validationFilePath = Console.ReadLine();
 
-            var structureValidator = new  StructureValidator();
-            structureValidator.OnError += StructureValidatorOnOnError;
-            var structureValidatorResult = structureValidator.Validate(xsdPath);
+            var validatorType = GetValidator();
 
-            if (!structureValidatorResult)
+            var program = new Program(validatorType);
+
+            if (validatorType is XsdValidator)
             {
-                Console.WriteLine("Неправильная вложенность елементов");
-                Console.ReadKey();
+                var structureValidator = new StructureValidator();
+                structureValidator.OnError += wrongElement =>
+                {
+                    Console.WriteLine("Ошибка структуры XSD");
+                    Console.WriteLine(wrongElement);
+                };
+
+                var structureValidatorResult = structureValidator.Validate(validationFilePath);
+
+                if (!structureValidatorResult)
+                {
+                    Console.WriteLine("Неправильная вложенность елементов");
+                    Console.ReadKey();
+                }
             }
 
-            validator.Load(xsdPath);
 
+            Console.Write("Путь до XML файла: ");
+
+            var xmlPath = Console.ReadLine();
+
+            program.Validator.OnValidationError += error =>
+            {
+                Console.WriteLine("Ошибка валидации XML");
+                Console.WriteLine(error);
+            };
+
+            var result = false;
             try
             {
-                validator.Validate(@"C:\Users\Pavel\Downloads\ТЗ\shipbuilding_rental3.xml");
+                program.Validator.Load(validationFilePath);
+                result = program.Validator.Validate(xmlPath);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
 
+            Console.WriteLine(result ? "Валидация успешна" : "Валидация завершилась с ошибками");
             Console.ReadKey();
+        }
+
+        private static IValidator GetValidator()
+        {
+            while (true)
+            {
+                Console.WriteLine("Укажите тип валидации:");
+                Console.WriteLine("1 - XSD");
+                Console.WriteLine("2 - DTD");
+                Console.Write("Тип валидации:");
+
+                var type = Console.ReadLine();
+
+                switch (type)
+                {
+                    case "1":
+                        return new XsdValidator();
+                    case "2":
+                        return new DtdValidator();
+                    default:
+                        Console.WriteLine("Тип не найден\n");
+                        break;
+                }
+            }
         }
 
         private static void StructureValidatorOnOnError(XElement wrongElement)

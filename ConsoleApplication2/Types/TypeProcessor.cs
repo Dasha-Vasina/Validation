@@ -7,7 +7,7 @@ namespace ConsoleApplication2.Types
     public abstract class TypeProcessor
     {
         public abstract IType Process(string name, XElement typeElement);
-        public static TypeProcessor GetProcessor(XElement typeElement, XsdValidator validator)
+        public static TypeProcessor GetProcessor(XElement typeElement, IXmlValidator validator)
         {
             switch (typeElement.Name.LocalName)
             {

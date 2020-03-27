@@ -5,9 +5,9 @@ namespace ConsoleApplication2.Processors
 {
     public class AttributeProcessor : IXsdElementProcessor
     {
-        private readonly XsdValidator _validator;
+        private readonly IXmlValidator _validator;
 
-        public AttributeProcessor(XsdValidator validator)
+        public AttributeProcessor(IXmlValidator validator)
         {
             _validator = validator;
         }

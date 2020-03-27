@@ -32,12 +32,12 @@ namespace ConsoleApplication2.Types
 
             if (Use == AttributeUsage.Prohibited && attribute != null)
             {
-                throw new Exception($"Аттрибут '{Name}' запрещен в элементе {element}");
+                throw new Exception($"Атрибут '{Name}' запрещен в элементе {element}");
             }
 
             if (Use == AttributeUsage.Required && attribute == null)
             {
-                throw new Exception($"Аттрибут '{Name}' обязателен для элепмента {element}");
+                throw new Exception($"Атрибут '{Name}' обязателен для элемента {element}");
             }
         }
 

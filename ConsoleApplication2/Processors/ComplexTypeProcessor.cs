@@ -8,9 +8,9 @@ namespace ConsoleApplication2.Processors
 {
     public class ComplexTypeProcessor : TypeProcessor, IXsdElementProcessor
     {
-        private readonly XsdValidator _validator;
+        private readonly IXmlValidator _validator;
 
-        public ComplexTypeProcessor(XsdValidator validator)
+        public ComplexTypeProcessor(IXmlValidator validator)
         {
             _validator = validator;
         }
@@ -36,7 +36,7 @@ namespace ConsoleApplication2.Processors
             foreach (var sequenceInnerElement in sequenceElements)
             {
                 sequence.Add(sequenceInnerElement);
-                _validator.ProcessElement(sequenceInnerElement);
+                _validator.Add(sequenceInnerElement);
             }
 
             return sequence;

@@ -4,9 +4,9 @@ namespace ConsoleApplication2.Processors
 {
     public class SchemaProcessing : IXsdElementProcessor
     {
-        private readonly XsdValidator _validator;
+        private readonly IXmlValidator _validator;
 
-        public SchemaProcessing(XsdValidator validator)
+        public SchemaProcessing(IXmlValidator validator)
         {
             _validator = validator;
         }
@@ -17,7 +17,7 @@ namespace ConsoleApplication2.Processors
 
             foreach (var node in elements)
             {
-                _validator.ProcessElement(node);
+                _validator.Add(node);
             }
         }
     }

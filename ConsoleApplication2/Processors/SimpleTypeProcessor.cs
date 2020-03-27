@@ -7,9 +7,9 @@ namespace ConsoleApplication2.Processors
 {
     public class SimpleTypeProcessor : TypeProcessor, IXsdElementProcessor
     {
-        private readonly XsdValidator _validator;
+        private readonly IXmlValidator _validator;
 
-        public SimpleTypeProcessor(XsdValidator validator)
+        public SimpleTypeProcessor(IXmlValidator validator)
         {
             _validator = validator;
         }
