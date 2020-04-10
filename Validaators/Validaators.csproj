@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE009820-DD2C-4640-B875-7014D5AED7ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Validaators</RootNamespace>
+    <AssemblyName>Validaators</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DtdValidator.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="IValidator.cs" />
+    <Compile Include="IXmlValidator.cs" />
+    <Compile Include="Processors\AttributeProcessor.cs" />
+    <Compile Include="Processors\ComplexTypeProcessor.cs" />
+    <Compile Include="Processors\ElementProcessor.cs" />
+    <Compile Include="Processors\IXsdElementProcessor.cs" />
+    <Compile Include="Processors\SchemaProcessing.cs" />
+    <Compile Include="Processors\SimpleTypeProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructureValidation\StructureValidator.cs" />
+    <Compile Include="StructureValidation\Validators\AttributeValidator.cs" />
+    <Compile Include="StructureValidation\Validators\ComplexTypeValidator.cs" />
+    <Compile Include="StructureValidation\Validators\ElementValidator.cs" />
+    <Compile Include="StructureValidation\Validators\EnumerationValidator.cs" />
+    <Compile Include="StructureValidation\Validators\IStructureValidator.cs" />
+    <Compile Include="StructureValidation\Validators\PatternValidator.cs" />
+    <Compile Include="StructureValidation\Validators\RestrictionValidator.cs" />
+    <Compile Include="StructureValidation\Validators\SchemaValidator.cs" />
+    <Compile Include="StructureValidation\Validators\SequenceValidator.cs" />
+    <Compile Include="StructureValidation\Validators\SimpleTypeValidator.cs" />
+    <Compile Include="StructureValidation\Validators\StructureValidatorBase.cs" />
+    <Compile Include="Types\AttributeValidation.cs" />
+    <Compile Include="Types\ComplexType.cs" />
+    <Compile Include="Types\Content.cs" />
+    <Compile Include="Types\EnumerationRestriction.cs" />
+    <Compile Include="Types\IntegerType.cs" />
+    <Compile Include="Types\IType.cs" />
+    <Compile Include="Types\PatternRestriction.cs" />
+    <Compile Include="Types\Restriction.cs" />
+    <Compile Include="Types\Sequence.cs" />
+    <Compile Include="Types\SimpleType.cs" />
+    <Compile Include="Types\SimpleTypeBase.cs" />
+    <Compile Include="Types\StringType.cs" />
+    <Compile Include="Types\TypeProcessor.cs" />
+    <Compile Include="ValidationDataContainer.cs" />
+    <Compile Include="ValidatorBase.cs" />
+    <Compile Include="XsdValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Processors\DTD\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
