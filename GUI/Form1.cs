@@ -89,6 +89,14 @@ namespace GUI
             }
         }
 
-      
+        private void validatorTextTbx_TextChanged(object sender, EventArgs e)
+        {
+            validatorTextTbx.ScrollBars = ScrollBars.Vertical;
+        }
+
+        private void xmlTextTbx_TextChanged(object sender, EventArgs e)
+        {
+            xmlTextTbx.ScrollBars = ScrollBars.Vertical;
+        }
     }
 }

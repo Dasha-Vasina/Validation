@@ -77,6 +77,7 @@
             this.validatorTextTbx.Name = "validatorTextTbx";
             this.validatorTextTbx.Size = new System.Drawing.Size(352, 275);
             this.validatorTextTbx.TabIndex = 3;
+            this.validatorTextTbx.TextChanged += new System.EventHandler(this.validatorTextTbx_TextChanged);
             // 
             // validatorFileTbx
             // 
@@ -134,6 +135,7 @@
             this.xmlTextTbx.Name = "xmlTextTbx";
             this.xmlTextTbx.Size = new System.Drawing.Size(346, 275);
             this.xmlTextTbx.TabIndex = 9;
+            this.xmlTextTbx.TextChanged += new System.EventHandler(this.xmlTextTbx_TextChanged);
             // 
             // validateFromFileBtn
             // 
@@ -205,7 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 450);
+            this.ClientSize = new System.Drawing.Size(1048, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
