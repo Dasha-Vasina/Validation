@@ -52,9 +52,17 @@ namespace GUI
 
         private void loadValidatorText_Click(object sender, EventArgs e)
         {
-            _validator.Load(validatorTextTbx.Text);
-            validateFromTextBtn.Enabled = true;
-            validateFromFileBtn.Enabled = true;
+            try
+            {
+                _validator.Load(validatorTextTbx.Text);
+                validateFromTextBtn.Enabled = true;
+                validateFromFileBtn.Enabled = true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Ошибка загрузки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void validateFromFileBtn_Click(object sender, EventArgs e)

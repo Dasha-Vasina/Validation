@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using ConsoleApplication2;
 using ConsoleApplication2.Types;
+using Validators.StructureValidation;
 
 namespace Validators
 {
@@ -15,6 +16,8 @@ namespace Validators
 
         public override void Load(string fileContent)
         {
+            CheckStructure(fileContent);
+
             var rootElementRegex = new Regex(@"<!DOCTYPE\s(?<name>.*)\[(?<innerContent>.*)\]>", RegexOptions.Singleline);
             var rootElementMatch = rootElementRegex.Match(fileContent);
 
@@ -39,6 +42,14 @@ namespace Validators
             foreach (var attributeString in attributeStrings)
             {
                 ProcessAttribute(attributeString);
+            }
+        }
+
+        private void CheckStructure(string fileContent)
+        {
+            using (var structureValidator = new DtdStructureValidator(fileContent))
+            {
+                structureValidator.Check();
             }
         }
 
