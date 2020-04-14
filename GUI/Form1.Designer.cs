@@ -42,6 +42,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.validatorFileBrowseBtn = new System.Windows.Forms.Button();
+            this.xmlFileBrowseBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +85,7 @@
             // 
             this.validatorFileTbx.Location = new System.Drawing.Point(10, 106);
             this.validatorFileTbx.Name = "validatorFileTbx";
-            this.validatorFileTbx.Size = new System.Drawing.Size(352, 20);
+            this.validatorFileTbx.Size = new System.Drawing.Size(263, 20);
             this.validatorFileTbx.TabIndex = 4;
             // 
             // loadValidatorBtn
@@ -125,7 +127,7 @@
             // 
             this.xmlFileTbx.Location = new System.Drawing.Point(6, 104);
             this.xmlFileTbx.Name = "xmlFileTbx";
-            this.xmlFileTbx.Size = new System.Drawing.Size(346, 20);
+            this.xmlFileTbx.Size = new System.Drawing.Size(258, 20);
             this.xmlFileTbx.TabIndex = 8;
             // 
             // xmlTextTbx
@@ -163,6 +165,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.validatorFileBrowseBtn);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.xsdRbn);
             this.groupBox1.Controls.Add(this.dtdRbn);
@@ -191,6 +194,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.xmlFileBrowseBtn);
             this.groupBox2.Controls.Add(this.xmlFileTbx);
             this.groupBox2.Controls.Add(this.xmlTextTbx);
             this.groupBox2.Controls.Add(this.validateFromTextBtn);
@@ -202,6 +206,26 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "XML-файл:";
+            // 
+            // validatorFileBrowseBtn
+            // 
+            this.validatorFileBrowseBtn.Location = new System.Drawing.Point(279, 104);
+            this.validatorFileBrowseBtn.Name = "validatorFileBrowseBtn";
+            this.validatorFileBrowseBtn.Size = new System.Drawing.Size(82, 23);
+            this.validatorFileBrowseBtn.TabIndex = 8;
+            this.validatorFileBrowseBtn.Text = "Обзор";
+            this.validatorFileBrowseBtn.UseVisualStyleBackColor = true;
+            this.validatorFileBrowseBtn.Click += new System.EventHandler(this.validatorFileBrowseBtn_Click);
+            // 
+            // xmlFileBrowseBtn
+            // 
+            this.xmlFileBrowseBtn.Location = new System.Drawing.Point(270, 103);
+            this.xmlFileBrowseBtn.Name = "xmlFileBrowseBtn";
+            this.xmlFileBrowseBtn.Size = new System.Drawing.Size(82, 23);
+            this.xmlFileBrowseBtn.TabIndex = 9;
+            this.xmlFileBrowseBtn.Text = "Обзор";
+            this.xmlFileBrowseBtn.UseVisualStyleBackColor = true;
+            this.xmlFileBrowseBtn.Click += new System.EventHandler(this.xmlFileBrowseBtn_Click);
             // 
             // Form1
             // 
@@ -235,6 +259,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button validatorFileBrowseBtn;
+        private System.Windows.Forms.Button xmlFileBrowseBtn;
     }
 }
 
